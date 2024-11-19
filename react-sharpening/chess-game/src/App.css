@@ -1,0 +1,679 @@
+/* Font imports  */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grinched&display=swap");
+/* Coustom animations */
+@keyframes poppy {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes jiggle{
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/* ==================================================================================== */
+/* Chessboard Styles  */
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 500px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  flex-direction: row;  
+}
+
+.square {
+  width: 110px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  border-radius: 5%;
+
+
+}
+.light {
+  background-color: rgb(242, 219, 195);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark {
+  background-color: rgb(177, 87, 23);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  opacity: 0.8;
+  border-radius: 50px;
+  border: 2px solid;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.has-piece:active,
+.has-piece:focus {
+  background-color: #fdfd8d; /* adjust the color as needed */
+  transition: background-color 0.3s ease; /* increase the duration and add easing */
+}
+.gamecontainer{
+margin: 65px;
+margin-top: -10px;
+}
+.contain-menu {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+}
+.contain-menu nav {
+  background: #0f1035;
+  border-radius: 20px;
+  padding: 7px;
+  margin: 6px;
+  box-shadow: 0 25px 20px -20px #7fc7d9;
+  float: left;
+  text-decoration: none;
+}
+.contain-menu nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 25px;
+  margin: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #4a7d8a;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.5s;
+  text-decoration: none;
+}
+.contain-menu nav ul li::after {
+  content: "";
+  background: #365486;
+  width: 100%;
+  height: 100%;
+  color: #54568a;
+
+  border-radius: 10px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0;
+  transition: top 0.5s, opacity 0.5s;
+}
+.contain-menu nav ul li:hover {
+  color: #926a6a;
+}
+.contain-menu nav ul li:hover::after {
+  top: 50%;
+  opacity: 1;
+}
+.navlnk{
+  font-family: Montserrat;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black;
+}
+/* ================================================================================== */
+/* Tutuorial  Styles*/
+.contain-menu2 {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+}
+.contain-menu2 nav {
+  background: #0f1035;
+  border-radius: 20px;
+  padding: 7px;
+  margin: 6px;
+  box-shadow: 0 25px 20px -20px #7fc7d9;
+  float: left;
+  text-decoration: none;
+}
+.contain-menu2 nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 25px;
+  margin: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #4a7d8a;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.5s;
+  text-decoration: none;
+}
+.contain-menu2 nav ul li::after {
+  content: "";
+  background: #365486;
+  width: 100%;
+  height: 100%;
+  color: #0f1035;
+
+  border-radius: 10px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0;
+  transition: top 0.5s, opacity 0.5s;
+}
+.contain-menu2 nav ul li:hover {
+  color: #926a6a;
+}
+.contain-menu2 nav ul li:hover::after {
+  top: 50%;
+  opacity: 1;
+}
+
+
+.tuth1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat;
+  animation: poppy 1s;
+  margin-top: 6px;
+}
+.piececard {
+  display: flex;
+  width: 20%;
+  scale: 0.5;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #8a696f;
+  border: 2px solid;
+  border-radius: 10px;
+  text-align: justify;
+  position: absolute;
+  bottom: 25%;
+  justify-content: space-between;
+}
+.tutimg {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  margin-bottom: 0px;
+}
+.tutp {
+  font-family: Montserrat;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #dcf2f1;
+}
+.tuth2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat;
+  animation: poppy 1s;
+  margin-top: 20px;
+  color: #dcf2f1;
+}
+
+.piececard {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #365486;
+  border: 0px solid;
+  border-radius: 30px;
+  text-align: justify;
+  position: absolute;
+  bottom: 45%;
+  transition: transform 0.5s;
+  justify-content: space-between;
+  box-shadow: 30px 30px 30px -30px #0f1035;
+}
+
+.piececard:hover {
+  transform: scale(1.5);
+}
+.piececard2 {
+  display: flex;
+  width: 20%;
+  scale: 0.5;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #365486;
+  border: 0px solid;
+  box-shadow: 30px 30px 30px -30px #0f1035;
+  border-radius: 30px;
+  text-align: justify;
+  position: absolute;
+  bottom: 10%;
+  left: 7%;
+  transition: transform 0.5s;
+}
+
+.piececard2:hover {
+  transform: scale(1.5);
+}
+.piececard3 {
+  display: flex;
+  width: 20%;
+  scale: 0.5;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #365486;
+  box-shadow: 30px 30px 30px -30px #0f1035;
+  border: 0px solid;
+  border-radius: 30px;
+  text-align: justify;
+  position: absolute;
+  bottom: 44%;
+  left: 15%;
+  transition: transform 0.5s;
+  color: #000;
+}
+.piececard3:hover {
+  transform: scale(1.5);
+}
+.piececard4 {
+  display: flex;
+  width: 20%;
+  scale: 0.5;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #365486;
+  box-shadow: 30px 30px 30px -30px #0f1035;
+  border: 0px solid;
+  border-radius: 30px;
+  text-align: justify;
+  position: absolute;
+  bottom: 44%;
+  right: 15%;
+  transition: transform 0.5s;
+}
+.piececard4:hover {
+  transform: scale(1.5);
+}
+.piececard5 {
+  display: flex;
+  width: 20%;
+  scale: 0.5;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #365486;
+  box-shadow: 30px 30px 30px -30px #0f1035;
+  border: 0px solid;
+  border-radius: 30px;
+  text-align: justify;
+  position: absolute;
+  bottom: 10%;
+  right: 7%;
+  margin-top: 3%;
+  transition: transform 0.5s;
+}
+.piececard5:hover {
+  transform: scale(1.5);
+}
+.piececard6 {
+  display: flex;
+  width: 20%;
+  scale: 0.5;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #365486;
+  box-shadow: 30px 30px 30px -30px #0f1035;
+  border: 0px solid;
+  border-radius: 30px;
+  text-align: justify;
+  position: absolute;
+  bottom: 48%;
+  right: -2%;
+  transition: transform 0.5s;
+}
+.piececard6:hover {
+  transform: scale(1.2);
+}
+.container2 {
+  width: 100%;
+  background-color: #eef5ff;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.chessboard-card {
+  display: flex;
+  scale: 0.4;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 30px; /* Reduced border-radius for a smoother look */
+  text-align: justify;
+  margin-top: -20%;
+  transition: transform 5s ease-in-out;
+ 
+}
+.chessboard-card:hover {
+ animation: alternate poppy 1s;
+}
+.navlnk {
+  font-family: Montserrat;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #7fc7d9;
+}
+.tutpcb{
+  font-size: 30px;
+  font-family: Montserrat ;
+  font-weight: 700;
+margin: 5px;
+
+}
+.tuthcb{
+  font-size: 50px;
+  font-family: Montserrat ;
+  font-weight: 200;
+margin: 5px;
+text-align: center;
+}
+.row-numbers {
+  font-size: 10px;
+  font-family: monospace;
+  font-weight: 200;
+
+  margin-left:50px ;
+  display: flex;
+  align-items: center; /* Align vertically */
+  justify-content: center; /* Align horizontally */
+  justify-content: space-between;
+  margin-right: 50px;
+}
+.titlecb{
+  font-size: 50px;
+  font-family: Montserrat ;
+  font-weight: 800;
+  animation: poppy 2s;
+}
+/* ================================================================================= */
+/* Home styles  */
+.rightone{
+position: absolute;
+display: flex;
+right: 0;
+bottom: 0;
+width: 50%;
+height: 100%;
+background-color:rgb(122, 108, 93); ;
+box-shadow: 10px 10px 10px -10px #0f1035;
+border-radius: 5px;
+}
+.leftone{
+position: fixed;
+left: 0;
+bottom: 0;
+width: 50%;
+height: 100%;
+display: flex;
+background-color:rgb(175, 106, 57);;
+box-shadow: 10px 10px 10px -10px #0f1035;
+border-radius: 5px;
+}
+
+
+/* NavBar 3  */
+.menu3 {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+  font-size: 20px;
+}
+ .menu3 nav {
+  background:black;
+  border-radius: 20px;
+  padding: 7px;
+  margin: 6px;
+  box-shadow: 0 25px 20px -20px #263336;
+  float: left;
+  text-decoration: none;
+}
+.menu3 nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 25px;
+  margin: 5px;
+  font-weight: 500;
+  color: black;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.5s;
+  text-decoration: none;
+}
+.menu3 nav ul li::after {
+  content: "";
+  background: #365486;
+  width: 100%;
+  height: 100%;
+  color: #0f1035;
+
+  border-radius: 10px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0;
+  transition: top 0.5s, opacity 0.5s;
+}
+
+nav ul li:hover::after {
+  top: 50%;
+  opacity: 1;
+}
+.menu3.navlnk {
+  font-family: Montserrat;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #7fc7d9;
+}
+.rookimage {
+  width: 100%;
+  height: 50%;
+  object-fit: contain;
+  scale: .9;
+  margin-bottom: 1rem; /* Adjust this value as needed */
+  position: absolute;
+  top: 10%;
+  right: 30%;
+  box-shadow: 10px 10px -10px #0f1035; ;
+}
+.rightone h1 {
+  font-size: 70px;
+  font-family: Montserrat;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin: 25px;
+  text-align: center;
+  color: #0f1035;
+  margin-top: 300px; /* Adjusted margin-top to bring it closer to the center */
+  line-height: 1.5; /* Adjust the line-height to control spacing between words */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Align words horizontally at center */
+  margin-right: -60px;
+}
+.leftone h1 {
+  font-size: 70px;
+  font-family: Montserrat;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin: 25px;
+  text-align: center;
+  color: #0f1035;
+  margin-top: 400px; 
+  line-height: 1.5; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin-left: 7px;
+}
+
+
+
+/* CSS */
+.btn {
+  background-color: #e39847;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+ margin: 18px;
+ margin-bottom: 15px;
+ 
+}
+
+.btn:hover {
+  background-color: #fff;
+}
+
+.btn:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .btn{
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+.btn{
+  width: fit-content;
+  height: fit-content;
+  margin-top: 75vh;
+ margin-left: 5vh;
+ gap: 1vh;
+ scale: 1.2;
+
+}
+
+.cbCard {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 45%;
+  position: absolute;
+  left: 35%;
+  
+}
+
+.cbCard img {
+  width: 50%; /* Adjust as needed */
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 1rem; 
+  margin-left: 35px;
+  
+}
+.features{
+  margin-top: 60%;
+  font-size: 30px;
+  line-height: 80px;
+  font-family: Poppins;
+  padding-right: 60;
+position: absolute;
+right: 7%;
+bottom: 30%;
+color: #0f1035;
+
+}
+.nav3{
+  background-color: #365486;
+}
+.navlnk3{
+  font-size: 30px;
+  font-family: Montserrat ;
+  font-weight: 700;
+  color: black;
+  text-decoration: none;
+}
+.fourthlnk{
+  font-size: 30px;
+  font-family: Montserrat ;
+  font-weight: 700;
+  color: black;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.footercontainer {
+  display: flex;
+  justify-content: center; /* Align items horizontally in the center */
+  align-items: center; /* Align items vertically in the center */
+  position: absolute;
+  width: 20%;
+  left: 55vh;
+  top: 80vh;
+scale: 1.2;
+  bottom: 0; /* Position at the bottom of the parent div */
+  width: 100%; /* Take the full width of the parent div */
+  gap: 150px;
+}
+.footercontainer img {
+  width: 30px; 
+  height: 30px; 
+}
